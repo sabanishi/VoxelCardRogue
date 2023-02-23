@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Entity
@@ -6,19 +7,24 @@ namespace Entity
     {
         //フィールド
         private int _hp;
-        protected int _maxHp;
-        
+        protected int MaxHp;
+        private Vector2Int _pos;
+
         //getter、setter
         public int Hp => _hp;
 
-        protected void Initialize()
+        public Vector2Int Pos => _pos;
+
+        public virtual void Initialize(Vector2Int pos)
         {
-            _hp = _maxHp;
+            _hp = MaxHp;
+            _pos = pos;
         }
 
-        public void Move()
+        public void Move(Direction direction)
         {
             //TODO:引数および中身の追加
+            Debug.Log(direction);
         }
 
         public void OnDamage(int damageNum)
