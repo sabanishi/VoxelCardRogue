@@ -7,6 +7,12 @@ namespace System.InputSystem
     {
         private readonly List<Key> _checkKeys = new List<Key>();
         
+        //TODO:仮実装
+        private void Start()
+        {
+            Initialize();
+        }
+        
         //初期化処理
         public void Initialize()
         {
@@ -28,17 +34,17 @@ namespace System.InputSystem
             }
         }
 
-        //指定されたキーのGetKeyDown、GetKey、GetKeyUpのいずれかを調べる
+        //指定されたキーのGetButtonDown、GetButton、GetButtonUpのいずれかを調べる
         private bool KeyCheck(Key key)
         {
             switch (key.State)
             {
                 case KeyState.Down:
-                    return Input.GetKeyDown(key.Name);
+                    return Input.GetButtonDown(key.Name);
                 case KeyState.Press:
-                    return Input.GetKey(key.Name);
+                    return Input.GetButton(key.Name);
                 case KeyState.Up:
-                    return Input.GetKeyUp(key.Name);
+                    return Input.GetButtonUp(key.Name);
                 default:
                     return false;
             }

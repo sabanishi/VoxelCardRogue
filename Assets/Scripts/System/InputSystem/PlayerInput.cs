@@ -5,7 +5,7 @@ namespace System.InputSystem
         //TODO:プレイヤーに関する処理の追加
         public void Input(string keyName)
         {
-            
+            UnityEngine.Debug.Log(keyName);
         }
     }
 }
